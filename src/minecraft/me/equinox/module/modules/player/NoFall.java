@@ -4,13 +4,12 @@ import me.equinox.event.EventTarget;
 import me.equinox.event.callable.EventUpdate;
 import me.equinox.module.Category;
 import me.equinox.module.Module;
+import me.equinox.module.ModuleInfo;
 import net.minecraft.network.play.client.C03PacketPlayer;
 import org.lwjgl.input.Keyboard;
 
+@ModuleInfo(name = "NoFall", description = "Makes you take no fall damage", key = Keyboard.KEY_N, category =  Category.PLAYER)
 public class NoFall extends Module {
-    public NoFall() {
-        super("NoFall", "Makes you take no fall damage", Keyboard.KEY_N, Category.PLAYER);
-    }
 
     @EventTarget
     public void onUpdate(EventUpdate event) {

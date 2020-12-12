@@ -4,12 +4,11 @@ import me.equinox.event.EventTarget;
 import me.equinox.event.callable.EventUpdate;
 import me.equinox.module.Category;
 import me.equinox.module.Module;
+import me.equinox.module.ModuleInfo;
 import org.lwjgl.input.Keyboard;
 
+@ModuleInfo(name = "Fly", description = "Makes you float in the air one way or another", key = Keyboard.KEY_F, category =  Category.MOVEMENT)
 public class Fly extends Module {
-    public Fly() {
-        super("Fly", "Makes you float in the air one way or another", Keyboard.KEY_F, Category.MOVEMENT);
-    }
 
     @EventTarget
     public void onUpdate(EventUpdate event) {

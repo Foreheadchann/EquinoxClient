@@ -1,21 +1,31 @@
 package me.equinox.module;
 
 import me.Equinox;
+import me.equinox.settings.Setting;
+import me.equinox.utils.MCInstance;
 import net.minecraft.client.Minecraft;
 
-public class Module {
-    protected Minecraft mc = Minecraft.getMinecraft();
+import java.util.ArrayList;
+
+public class Module extends MCInstance {
     private String name, displayName, description;
     private int key;
     private Category category;
     private boolean toggled;
+    public final ArrayList<Setting> settings = new ArrayList<>();
 
-    public Module(String name, String description, int key, Category category) {
-        this.name = name;
-        this.description = description;
-        this.key = key;
-        this.category = category;
+    public Module() {
+        ModuleInfo module = this.getClass().getAnnotation(ModuleInfo.class);
+        name = module.name();
+        displayName = module.name();
+        key = module.key();
+        category = module.category();
+
         toggled = false;
+    }
+
+    public Setting getSettingByName(String name) {
+        return settings.stream().filter(setting -> setting.name.equalsIgnoreCase(name)).findFirst().orElse(null);
     }
 
     public void onEnable() {

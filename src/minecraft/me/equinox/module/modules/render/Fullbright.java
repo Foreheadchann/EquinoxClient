@@ -4,14 +4,12 @@ import me.equinox.event.EventTarget;
 import me.equinox.event.callable.EventUpdate;
 import me.equinox.module.Category;
 import me.equinox.module.Module;
+import me.equinox.module.ModuleInfo;
 import org.lwjgl.input.Keyboard;
 
+@ModuleInfo(name = "Fullbright", description = "Makes your game's brightness over vanilla limit", key = Keyboard.KEY_G, category =  Category.RENDER)
 public class Fullbright extends Module {
     private float oldValue;
-
-    public Fullbright() {
-        super("Fullbright", "Makes your game's brightness over vanilla limit", Keyboard.KEY_G, Category.RENDER);
-    }
 
     @EventTarget
     public void onUpdate(EventUpdate event) {
