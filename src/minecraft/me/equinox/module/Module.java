@@ -1,9 +1,14 @@
 package me.equinox.module;
 
+import com.mojang.realmsclient.gui.ChatFormatting;
 import me.Equinox;
+import me.equinox.notification.NotificationHandler;
+import me.equinox.notification.utils.NotificationManager;
+import me.equinox.notification.utils.NotificationType;
 import me.equinox.settings.Setting;
 import me.equinox.utils.MCInstance;
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.EnumChatFormatting;
 
 import java.util.ArrayList;
 
@@ -30,10 +35,12 @@ public class Module extends MCInstance {
 
     public void onEnable() {
         Equinox.instance.em.register(this);
+        NotificationManager.displayNotification(new NotificationHandler(NotificationType.INFO, "§aEnabled §f" + name, null, 3, EnumChatFormatting.GREEN.getColorIndex()));
     }
 
     public void onDisable() {
         Equinox.instance.em.unregister(this);
+        NotificationManager.displayNotification(new NotificationHandler(NotificationType.INFO, "§cDisabled §f" + name, null, 3, EnumChatFormatting.RED.getColorIndex()));
     }
 
     public void onToggle() {

@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.Random;
 
 import me.equinox.event.callable.Event2D;
+import me.equinox.notification.utils.NotificationManager;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -383,6 +384,8 @@ public class GuiIngame extends Gui
                 int l = sr.getScaledHeight() - 16 - 3;
                 this.renderHotbarItem(j, k, l, partialTicks, entityplayer);
             }
+
+            NotificationManager.render();
 
             RenderHelper.disableStandardItemLighting();
             GlStateManager.disableRescaleNormal();
