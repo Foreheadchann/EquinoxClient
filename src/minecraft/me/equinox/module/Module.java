@@ -23,6 +23,7 @@ public class Module extends MCInstance {
         ModuleInfo module = this.getClass().getAnnotation(ModuleInfo.class);
         name = module.name();
         displayName = module.name();
+        description = module.description();
         key = module.key();
         category = module.category();
 

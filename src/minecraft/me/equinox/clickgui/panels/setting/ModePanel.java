@@ -30,6 +30,6 @@ public class ModePanel extends SettingPanel{
 
     @Override
     public void buttonClick(int button) {
-        if(button == 0) ((ModeSetting)setting).nextMode();
+        if(button == 0) ((ModeSetting)setting).nextMode(); else ((ModeSetting)setting).prevMode();
     }
 }

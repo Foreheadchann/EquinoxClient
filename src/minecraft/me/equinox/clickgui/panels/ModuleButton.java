@@ -14,6 +14,7 @@ import me.equinox.utils.ColorUtil;
 import me.equinox.utils.FontUtils;
 import me.equinox.utils.RenderUtils;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class ModuleButton extends Panel{
@@ -51,6 +52,10 @@ public class ModuleButton extends Panel{
 
         FontUtils.drawString("> " + name, catPanel.x + 3, (catPanel.y2Visual + y) + FontUtils.getFontHeight() / 2, ColorUtil.moduleTextColor(style, isHovered(mouseX, mouseY), module.isToggled()));
 
+        if(isHovered(mouseX, mouseY)) {
+            RenderUtils.drawRect(mouseX, mouseY, mouseX + FontUtils.getStringWidth(module.getDescription()), mouseY + FontUtils.getFontHeight(), 0xff151515);
+            FontUtils.drawString(module.getDescription(), mouseX, mouseY, Color.WHITE.getRGB());
+        }
     }
 
     @Override
