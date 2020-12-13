@@ -27,7 +27,7 @@ public class ModeSetting extends Setting {
     }
 
     public void prevMode() {
-        if(index > 0) index--; else index = modes.size();
+        if(index > 0) index--; else index = modes.size() - 1;
     }
 
     public void setVal(String mode) {
