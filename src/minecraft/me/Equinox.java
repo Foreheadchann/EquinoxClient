@@ -9,7 +9,7 @@ import net.minecraft.client.Minecraft;
 import org.lwjgl.opengl.Display;
 
 public class Equinox {
-    public static String __NAME__ = "Equinox", __VERSION__ = "b0.1", __AUTHORS__ = "Foreheadchan_, P3rZ3r0, Alan31, Patrick, Tecnio";
+    public static String __NAME__ = "Equinox", __VERSION__ = "b0.1", __AUTHORS__ = "Foreheadchan_, P3rZ3r0, Alan31, Patrick, Tecnio, icywormy3";
 
     private Minecraft mc = Minecraft.getMinecraft();
 

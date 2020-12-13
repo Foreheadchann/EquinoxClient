@@ -5,6 +5,7 @@ import optifine.Config;
 import shadersmod.client.ShadersTex;
 
 import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
 import java.io.IOException;
 
 public class DynamicTexture extends AbstractTexture {
@@ -20,12 +21,6 @@ public class DynamicTexture extends AbstractTexture {
     public final int height;
     public boolean shadersInitialized;
 
-    public DynamicTexture(BufferedImage bufferedImage) {
-        this(bufferedImage.getWidth(), bufferedImage.getHeight());
-        bufferedImage.getRGB(0, 0, bufferedImage.getWidth(), bufferedImage.getHeight(), this.dynamicTextureData, 0, bufferedImage.getWidth());
-        this.updateDynamicTexture();
-    }
-
     public DynamicTexture(int textureWidth, int textureHeight) {
         this.shadersInitialized = false;
         this.width = textureWidth;
@@ -38,6 +33,12 @@ public class DynamicTexture extends AbstractTexture {
         } else {
             TextureUtil.allocateTexture(this.getGlTextureId(), textureWidth, textureHeight);
         }
+    }
+
+    public DynamicTexture(BufferedImage bufferedImage) {
+        this(bufferedImage.getWidth(), bufferedImage.getHeight());
+        bufferedImage.getRGB(0, 0, width, height, this.dynamicTextureData, 0, width);
+        this.updateDynamicTexture();
     }
 
     public void loadTexture(IResourceManager resourceManager) throws IOException {
